@@ -1,19 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const video = document.getElementById('camera');
+'use strict';
 
-    const startCamera = () => {
-        navigator.mediaDevices.getUserMedia({
+const handler = async (event) => {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({
             video: {
-                facingMode: 'user' // インカメを指定
+                facingMode: 'user'
             }
-        })
-        .then((stream) => {
-            video.srcObject = stream;
-        })
-        .catch((error) => {
-            console.error(error);
-        })
-    }
+        });
 
-    startCamera();
-});
+        const video = document.getElementById('video');
+        video.srcObject = stream;
+    } catch (err) {
+        //
+    }
+}
+
+document.addEventListener('DOMContentLoaded', (event) => handler(event));
