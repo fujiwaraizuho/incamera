@@ -39,7 +39,7 @@ body, html {
 
 #textArea {
     position: absolute;
-    top: calc(100vh - 250px);
+    top: calc(100% - 250px);
     width: 100%;
     text-align: center;
     color: black;
