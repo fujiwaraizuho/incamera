@@ -1,18 +1,16 @@
-'use strict';
+document.addEventListener('DOMContentLoaded', function () {
+    const startButton = document.getElementById('startButton');
+    const camera = document.getElementById('camera');
 
-const handler = async (event) => {
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-            video: {
-                facingMode: 'user'
-            }
-        });
-
-        const video = document.getElementById('video');
-        video.srcObject = stream;
-    } catch (err) {
-        //
-    }
-}
-
-document.addEventListener('DOMContentLoaded', (event) => handler(event));
+    startButton.addEventListener('click', function() {
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
+            .then(function (stream) {
+                camera.srcObject = stream;
+                camera.style.display = 'block';
+                startButton.style.display = 'none';
+            })
+            .catch(function (error) {
+                console.error("メディアデバイスの取得に失敗しました。", error);
+            });
+    });
+});

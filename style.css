@@ -3,10 +3,23 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
 }
 
-#video {
+#camera {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#startButton {
+    z-index: 10;
+    padding: 10px 20px;
+    font-size: 20px;
 }
