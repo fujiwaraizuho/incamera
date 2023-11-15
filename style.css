@@ -1,8 +1,6 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    height: -webkit-fill-available;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -11,12 +9,13 @@ body, html {
 
 #container {
     background-color: black;
-    height: -webkit-fill-available;
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
 }
 
 #camera {
     width: calc(100vw - 120px);
-    height: calc(100vh - 350px);
+    height: calc(100% - 350px);
     object-fit: cover;
     position: fixed;
     top: 80px;
